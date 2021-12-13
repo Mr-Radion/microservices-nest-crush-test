@@ -6,22 +6,23 @@ import { ProductEntity } from './product.entity';
 @Injectable()
 export class ProductService {
   constructor(
-    @InjectRepository(ProductEntity) private readonly productRepository: Repository<ProductEntity>,
+    @InjectRepository(ProductEntity)
+    private readonly productRepository: Repository<ProductEntity>,
   ) {}
 
   all(): Promise<ProductEntity[]> {
     return this.productRepository.find();
   }
 
-  create(data: Object): Promise<ProductEntity> {
-    return this.productRepository.save(data);
-  }
-
-  get(id: number) {
+  findOne(id: number) {
     return this.productRepository.findOne({ id });
   }
 
-  update(id: number, data: Object): Promise<any> {
+  create(data): Promise<ProductEntity> {
+    return this.productRepository.save(data);
+  }
+
+  update(id, data): Promise<any> {
     return this.productRepository.update(id, data);
   }
 

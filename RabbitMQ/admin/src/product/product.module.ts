@@ -16,7 +16,7 @@ import { ProductService } from './product.service';
           urls: [
             'amqps://hyzifzwm:wTrJCzCFf7WkfjMM1tcxz8GZqPhyy_2Z@cow.rmq2.cloudamqp.com/hyzifzwm', // cloudAMQP https://api.cloudamqp.com/
           ],
-          queue: 'cats_queue',
+          queue: 'main_queue',  // обращаемся к сервису main
           queueOptions: {
             durable: false,
           },
